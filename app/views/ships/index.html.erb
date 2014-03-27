@@ -1,0 +1,35 @@
+<h1>Listing ships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shipping</th>
+      <th>Order</th>
+      <th>Archive</th>
+      <th>Shipping amount</th>
+      <th>Shipping date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ships.each do |ship| %>
+      <tr>
+        <td><%= ship.shipping_id %></td>
+        <td><%= ship.order_id %></td>
+        <td><%= ship.archive_id %></td>
+        <td><%= ship.shipping_amount %></td>
+        <td><%= ship.shipping_date %></td>
+        <td><%= link_to 'Show', ship %></td>
+        <td><%= link_to 'Edit', edit_ship_path(ship) %></td>
+        <td><%= link_to 'Destroy', ship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ship', new_ship_path %>
